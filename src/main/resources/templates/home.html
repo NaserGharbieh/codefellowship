@@ -4,19 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        h3 {
+            margin: 20px 0;
+        }
+
+        a {
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+           form {
+            margin-top: 20px;
+        }
+
+        input[type="submit"] {
+            background-color: #d9534f; /* Red color for the log out button */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #c9302c; /* Darker red on hover */
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            h3 {
+                font-size: 16px;
+            }
+
+            a {
+                padding: 8px 16px;
+            }
+        }
+    </style>
 </head>
 <body>
-<h1>Welcome, <span th:text="${currentUser.username}"></span>!</h1>
 
-<h2>Your Profile:</h2>
-<ul>
-    <li><strong>First Name:</strong> <span th:text="${currentUser.firstName}"></span></li>
-    <li><strong>Last Name:</strong> <span th:text="${currentUser.lastName}"></span></li>
-    <li><strong>Date of Birth:</strong> <span th:text="${currentUser.dateOfBirth}"></span></li>
-    <li><strong>Bio:</strong> <span th:text="${currentUser.bio}"></span></li>
-</ul>
+<h1>Welcome to CodeFellowShip  </h1>
 
-<form action="/perform_logout" method="POST">
+<h3 th:if="${user != null}">
+    <span th:text="${'Current user: ' + user.username }"></span><br>
+    <span th:text="${'First Name: ' + user.firstName }"></span><br>
+    <span th:text="${'Last Name: ' + user.lastName }"></span><br>
+    <span th:text="${'Date of Birth: ' + user.dateOfBirth }"></span><br>
+    <span th:text="${'Bio : ' + user.bio }"></span>
+</h3>
+<h2 th:if="!${user}" >Available Routes:</h2>
+<a th:if="!${user}"  href="/">/</a> <span th:if="!${user}" > Log in to see your profile info </span>
+<a th:if="!${user}" href="/login">Log In</a>
+<a th:if="!${user}" href="/signup">Sign Up</a>
+
+<form th:if="${user}" action="/perform_logout" method="POST">
     <input type="submit" value="Log Out">
 </form>
 </body>
