@@ -87,7 +87,7 @@ public class ApplicationUserController {
         if(p != null){
             String username = p.getName();
             ApplicationUser user= applicationUserRipository.findByUsername(username);
-            m.addAttribute("currentUser", user);
+            m.addAttribute("user", user);
         }
 
         return "home.html";
@@ -96,28 +96,5 @@ public class ApplicationUserController {
 
 
 
-//    @PostMapping("/signup")
-//    public RedirectView signUpUserWithBCrypt(String username, String password){
-//        String hashedPassword= BCrypt.hashpw(password,BCrypt.gensalt(12));
-//
-//        SiteUser siteUser=new SiteUser(username, hashedPassword);
-//        siteUserRepository.save(siteUser);
-//
-//        return new RedirectView("/login");
-//    }
-//
-//
-//
-//
-//    @PostMapping("/login")
-//    public RedirectView logInUser(HttpServletRequest request, String username, String password){
-//        SiteUser userFromDb =siteUserRepository.findByUsername(username);
-//
-//        if((userFromDb==null)||!(BCrypt.checkpw(password,userFromDb.getPassword()))){
-//            return new RedirectView("/login");
-//        }
-//        HttpSession session= request.getSession();
-//        session.setAttribute("username", username);
-//        return new RedirectView("/posts");
-//    }
+
 }
