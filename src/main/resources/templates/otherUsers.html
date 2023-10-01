@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile page</title>
+  <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        h3 {
+            margin: 20px 0;
+        }
+
+        a {
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input[type="submit"] {
+            background-color: #d9534f;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #c9302c;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            h3 {
+                font-size: 16px;
+            }
+
+            a {
+                padding: 8px 16px;
+            }
+        }
+
+
+        img {
+            max-width: 100px;
+            margin-top: 10px;
+            border-radius: 50%;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        form textarea {
+            width: 70%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  flex-basis: calc(50% - 20px); /* Two cards in each row */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  text-align: left;
+}
+
+.post-info {
+  font-weight: bold;
+}
+
+.post-body {
+  max-height: 100px; /* Adjust the maximum height as needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.card:nth-child(even) {
+  background-color: #fff;
+}
+
+
+        /* Available Routes */
+        h2 {
+            margin-top: 20px;
+        }
+
+        span.route-info {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>  <span th:text="${ user.username }"></span> Profile page </h1>
+
+<img src="data:image/jpeg;base64,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"
+     alt="Profile Picture" style="max-width: 100px; margin-top: 10px;">
+
+<h3 th:if="${user != null}">
+  <span th:text="${'User: ' + user.username }"></span><br>
+  <span th:text="${'First Name: ' + user.firstName }"></span><br>
+  <span th:text="${'Last Name: ' + user.lastName }"></span><br>
+  <span th:text="${'Date of Birth: ' + user.dateOfBirth }"></span><br>
+  <span th:text="${'Bio : ' + user.bio }"></span>
+</h3>
+<h1> <span th:text="${ user.username +' posts' }"></span><br> </h1>
+<div class="card-container">
+  <div th:each="post : ${post}" class="card">
+    <div class="post-info" th:text=" 'Posted on: ' + ${post.createdAt}"></div>
+    <div class="post-body" th:text="${post.body}"></div>
+  </div>
+</div>
+
+
+
+
+</body>
+</html>

@@ -3,6 +3,7 @@ package com.NaserGharbieh.codefellowship.controller;
 import com.NaserGharbieh.codefellowship.models.ApplicationUser;
 import com.NaserGharbieh.codefellowship.repositries.ApplicationUserRipository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.ServletException;
@@ -94,7 +96,16 @@ public class ApplicationUserController {
     }
 
 
-
-
-
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    public class ResourceNotFoundException extends RuntimeException
+    {
+        ResourceNotFoundException(String message)
+        {
+            super(message);
+        }
+    }
 }
+
+
+
+
