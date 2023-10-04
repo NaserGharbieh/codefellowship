@@ -1,0 +1,124 @@
+
+ body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        h3 {
+            margin: 20px 0;
+        }
+
+        a {
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input[type="submit"] {
+            background-color: #d9534f;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #c9302c;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            h3 {
+                font-size: 16px;
+            }
+
+            a {
+                padding: 8px 16px;
+            }
+        }
+
+
+        img {
+            max-width: 100px;
+            margin-top: 10px;
+            border-radius: 50%;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        form textarea {
+            width: 70%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  flex-basis: calc(50% - 20px); /* Two cards in each row */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  text-align: left;
+}
+
+.post-info {
+  font-weight: bold;
+}
+
+.post-body {
+  max-height: 100px; /* Adjust the maximum height as needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.card:nth-child(even) {
+  background-color: #fff;
+}
+
+
+        /* Available Routes */
+        h2 {
+            margin-top: 20px;
+        }
+
+        span.route-info {
+            margin: 10px;
+        }

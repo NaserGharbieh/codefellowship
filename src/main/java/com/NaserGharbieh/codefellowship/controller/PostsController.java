@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -69,6 +70,37 @@ public class PostsController {
         }
         return new RedirectView("/myprofile");
     }
+
+
+    @PostMapping("/wihtelabelpage")
+    public RedirectView cuseWihteLabelpage(Principal p , RedirectAttributes redir) {
+        if (p != null) {
+            //this will allow you to store model attributes temporarily like this message error
+            redir.addFlashAttribute("errorMessage", "you caused this @_@  wihte label fragment");
+        }
+
+            return new RedirectView("/wihtelabelpage");
+        }
+
+
+
+
+
+    @GetMapping("/wihtelabelpage")
+    public String getWihteLabelpage(Principal p, Model m) {
+        if (p != null) {
+            String username = p.getName();
+            ApplicationUser user = applicationUserRipository.findByUsername(username);
+            if (user != null) {
+                m.addAttribute("user", user);
+                return "wihtelabelpage.html";}
+
+        }
+
+
+            return "wihtelabelpage.html";}
+
+
 
 }
 

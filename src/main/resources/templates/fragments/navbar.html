@@ -1,0 +1,8 @@
+<nav th:fragment="navbar" class="navbar" xmlns:th="">
+
+    <a th:href="@{/}" th:classappend="${currentUrl == '/' ? 'active' : ''}">CodeFellowship</a>
+    <a th:href="@{/myprofile}" th:classappend="${currentUrl == '/myprofile' ? 'active' : ''}">My Profile and Posts</a>
+    <a th:href="@{/exploreusers}" th:classappend="${currentUrl == '/exploreusers' ? 'active' : ''}">See All Users</a>
+    <a href="/wihtelabelpage">Test White Label Fragment</a>
+
+</nav>

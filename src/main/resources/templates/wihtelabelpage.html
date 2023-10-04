@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>wihtelabelpage</title>
+    <style>
+        input[type="submit"] {
+            background-color: #d9534f;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+<h1><span th:text="${ user.username }"></span>
+<div th:replace="/fragments/error-fragment :: CodeFellowship-error"></div> </h1>
+<form action="/wihtelabelpage" method="post">
+    <input type="submit" value=" see wihte label fragment  ">
+</form>
+
+
+
+</body>
+</html>
