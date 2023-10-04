@@ -1,0 +1,27 @@
+/* Style for user cards */
+
+.user-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  width: calc(20% - 15px); /* 3 cards per row */
+  float: left;
+  box-sizing: border-box;
+}
+
+/* Style for user profile picture */
+.user-profile-pic {
+  max-width: 100px;
+  margin-top: 10px;
+}
+
+/* Style for links within the user card */
+.user-card a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+/* Style for the "See my profile" link */
+.user-card a:hover {
+  text-decoration: underline;
+}

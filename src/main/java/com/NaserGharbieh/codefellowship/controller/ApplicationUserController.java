@@ -19,6 +19,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class ApplicationUserController {
@@ -95,15 +96,18 @@ public class ApplicationUserController {
         return "home.html";
     }
 
+    @GetMapping("/exploreusers")
+    public String getAllusers( Principal p,Model m) {
+        if(p != null){
+            List<ApplicationUser> albums=applicationUserRipository.findAll();
 
-    @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    public class ResourceNotFoundException extends RuntimeException
-    {
-        ResourceNotFoundException(String message)
-        {
-            super(message);
+            m.addAttribute("users", albums);
         }
+
+
+        return "exploreusers.html";
     }
+
 }
 
 
