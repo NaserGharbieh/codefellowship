@@ -24,6 +24,10 @@
   <span th:text="${'Date of Birth: ' + user.dateOfBirth }"></span><br>
   <span th:text="${'Bio : ' + user.bio }"></span>
 </h3>
+<form th:action="@{'/follow/' +${id}}" method="post">
+  <input type="submit" value="Follow">
+</form>
+
 <h1> <span th:text="${ user.username +' posts' }"></span><br> </h1>
 <div class="card-container">
   <div th:each="post : ${post}" class="card">

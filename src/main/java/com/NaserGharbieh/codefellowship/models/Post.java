@@ -2,7 +2,6 @@ package com.NaserGharbieh.codefellowship.models;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 @Entity
 public class Post {
@@ -13,7 +12,7 @@ public class Post {
   private   LocalDate createdAt;
 
   @ManyToOne
-  private ApplicationUser postByApplicationUser;
+  private ApplicationUser applicationUser;
 
 
 
@@ -22,10 +21,10 @@ public class Post {
 
 
 
-    public Post(String body,ApplicationUser postByApplicationUser) {
+    public Post(String body,ApplicationUser applicationUser) {
         this.body = body;
 
-        this.postByApplicationUser=postByApplicationUser;
+        this.applicationUser = applicationUser;
     }
 
 
@@ -47,4 +46,13 @@ public class Post {
     public Long getId() {
         return id;
     }
+    public ApplicationUser getApplicationUser() {
+        return applicationUser;
+    }
+
+
+    public void setApplicationUser(ApplicationUser postByApplicationUser) {
+        this.applicationUser = postByApplicationUser;
+    }
+
 }
